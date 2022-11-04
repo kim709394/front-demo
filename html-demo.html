@@ -1,12 +1,231 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!--DTD:DocTypeDefinntion,文档定义类型，告知浏览器该网页使用的是哪个版本的HTML规范，让浏览器按照对应版本的HTML语法进行解析页面  -->
+<!DOCTYPE html> 
+<html lang="en">    <!-- 网页骨架根标签.xmlns：命名空间：规定不同浏览器对同一标签语义遵循的统一标准，省略即是HTML5；lang：标签内容语言指定 -->
+<head>   <!-- 网页头部，用于进行相关设置，编码格式等，除了title都不显示在网页上 -->
+    <meta charset="UTF-8">   <!-- 编码格式为UTF-8 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>html笔记</title> <!-- 网站标题，可以作为搜索引擎关键字利于搜索，作为浏览器收藏夹标题 -->
 </head>
-<body>
-    <h1>哈哈</h1>
+<body>  <!-- 网页主体 -->
+    <!-- 标题标签，不能嵌套，只能是兄弟节点-->
+    <h1 id="_h1">一级标题最大</h1>
+    <h2>二级标题第二大</h2>
+    <h3>三级标题第三大</h3>
+    <h4>四级标题第四大</h4>
+    <h5>五级标题第五大</h5>
+    <h6>六级标题最小</h6>
+    <!-- 段落标签 -->
+    <p>这是一段段落</p>
+    <!-- 换行标签 -->
+    <br/>
+    <p>
+        <!-- 文本标签，内容只能是文本 -->
+        <!-- b标签：文字加粗， -->
+        <b>文字加粗</b>
+        <!--i标签：斜体字，内容只能是文本  -->
+        <i>i标签</i>
+        <!-- u标签：文字加下划线，内容只能是文本 -->
+        <u>u标签</u>
+        <!--次方  -->
+        2<sup>3</sup>   &nbsp;
+        <!--下标  -->
+        H<sub>2</sub>O
+    </p>
+    <!-- 图像标签;src:图片路径，相对路径或绝对路径或网络路径；alt：图片加载失败时显示文字；title：鼠标悬停时显示文字 
+        width：宽度；height：高度，border:边框,单位：px(可省略); 
+    -->
+    <a name="_img"></a>
+    <img src="./imgs/syyy.jpg" alt="三上悠亚" title="三上悠亚" width="200px" height="300px" border="10">
+    <!-- 音频标签;src:音频路径；controls:进度条 -->
+    <audio src="./audios/谷娅溦-安守本份.mp3" controls="controls"></audio>
+    <!-- 视频标签 src:视频路径；controls：进度条-->
+    <video src="./videos/金科铂悦都会.mp4" controls="controls"></video>
+    <!-- 超链接 href:连接地址；target：控制标签页位置：_blank:新标签页；_self:本标签页，默认值；title：鼠标悬停时显示文字-->
+    <a href="http://wwww.baidu.com" target="_blank" title="超链接" >百度</a>
+    <!-- 锚点 href属性值为# + 跳转目的标签的id属性值或者a标签的name属性值-->
+    <a href="#_h1">锚点跳转到一级标题位置</a>
+    <a href="#_img">锚点跳转到图片位置</a>
+    <!-- 无序列表，列表各项没有序号 ul和li是嵌套配合实现，li不能单独使用-->
+    <h4>无序列表</h4>
+    <ul>
+        <li>
+            <h4>深圳</h4>
+            <ul>
+                <li>宝安区</li>
+                <li>福田区</li>
+                <li>龙岗区</li>        
+            </ul>
+        </li>
+        <li>广州</li>
+        <li>北京</li>
+        <li>上海</li>
+    </ul>
+    <!-- 有序列表；列表是有序号 -->
+    <h4>有序列表</h4>
+    <ol>
+        <li>java</li>
+        <li>go</li>
+        <li>node.js</li>
+        <li>
+            <h4>前端</h4>
+            <ol>
+                <li>html</li>
+                <li>css</li>
+                <li>vue</li>
+            </ol>
+        </li>
+    </ol>
+    <!-- 定义列表 -->
+    <h4>定义列表</h4>
+    <dl>
+        <dt>spring</dt>
+        <dd>
+            <p>ioc</p>
+            <p>aop</p>
+            <p>生命周期</p>
+        </dd>
+    </dl>
+    <dl>
+        <dt>springmvc</dt>
+        <dd>
+            <p>dispatcherServlet</p>
+            <p>handlers</p>
+            <p>controler</p>
+        </dd>
+    </dl>
+    <!-- 盒子：div和span -->
+    <div>
+        <h4>div</h4>
+        <dl>
+            <dt>mybatis</dt>
+            <dd>
+                <p>mapper</p>
+                <p><span style="color: red;">sqlSession</span></p>
+                <p>xml</p>
+            </dd>
+        </dl>
+    </div>
+    <!-- 表格：单元格有默认空隙，border-collapse:去除单元格空隙-->
+    <h4></h4>
+    <table border="1" style="border-collapse:collapse" >
+        <!-- 表格标题 -->
+        <caption>表格标题</caption>
+        <!-- 表头 -->
+        <thead>
+            <tr>
+                <th colspan="4" style="text-align: center;">表头</th>
+            </tr>
+        </thead>
+        <!-- 表格体 -->
+        <tbody>
+            <tr>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>32</td>
+                <td>33</td>
+                <td>34</td>
+            </tr>
+            <!-- 合并单元格 colspan:合并列，左右合并；rowspan：合并行，上下合并；-->
+            <tr>
+                <td colspan="2">11</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td rowspan="2">21</td>
+                <td>22</td>
+                <td colspan="2" rowspan="2">23</td>
+            </tr>
+            <tr>
+                <td>32</td>
+            </tr>
+        </tbody>
+        <!-- 表脚 -->
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: center;">表脚</td>
+            </tr>
+        </tfoot>
+    </table>
+    <!-- 表单域 -->
+    <h4>表单</h4>
+    <form action="server.java" method="post" name="form1">
+        <p>
+            用户名：<input type="text" name="username" value="马斯克">
+        </p>
+        <p>
+            密码：<input type="password" name="password" value="">
+        </p>
+        <p>
+            性别：
+            <!-- label绑定内容和表单空间作为一个整体:
+                第一种方式：设置表单空间的id属性值和label的for属性值相等，适合两个标签距离比较远
+                第二种方式：直接用label标签嵌套标签或者内容
+            -->
+            <input type="radio" name="sex" value="male" checked id="nan"> <label for="nan">男</label> 
+            <label> <input type="radio" name="sex" value="female"> 女</label>
+        </p>
+        <p>
+            兴趣爱好：
+            <input type="checkbox" name="hobby" value="music" checked> 音乐
+            <input type="checkbox" name="hobby" value="football" checked> 足球
+            <input type="checkbox" name="hobby" value="basketball"> 篮球
+        </p>
+        <p>
+            <!-- multiple:可多选 -->
+            简历：<input type="file" name="attach" multiple>
+        </p>
+        <p>
+            自我介绍：
+            <textarea name="" id="" cols="30" rows="10">
+                php是世界上最好的语言，我是后端转前端的程序员。
+            </textarea>
+        </p>
+        <p>
+            所在城市：
+            <select name="city" id="">
+                <option value="" selected >--请选择--</option>
+                <option value="">北京</option>
+                <option value="">重庆</option>
+                <option value="">南京</option>
+            </select>
+            <!-- 分组选项 -->
+            <select name="city" id="">
+                <optgroup label="国内">
+                    <option value="">北京</option>
+                    <option value="">重庆</option>
+                    <option value="">南京</option>
+                </optgroup>
+                <optgroup label="国外">
+                    <option value="">纽约</option>
+                    <option value="">华盛顿</option>
+                    <option value="">曼彻斯特</option>
+                </optgroup>
+            </select>
+        </p>
+        <p>
+            <input type="button" value="普通按钮">
+            <input type="reset"  value="重置按钮">
+            <input type="submit" value="提交按钮">
+            <input type="image" src="./imgs/syyy.jpg" title="提交"> <!-- 图片提交按钮-->
+        </p>
+    </form>
+    <!-- 字符实体(转义) -->
+    空格：&nbsp;&nbsp;&nbsp;
+    小于号：&lt;
+    大于号：&gt;
+    <a href="https://www.w3school.com.cn/" target="_blank">查阅w3cschool手册</a>
 </body>
 </html>
