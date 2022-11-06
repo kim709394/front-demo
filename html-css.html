@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- head标签内部引入css文件 rel="stylesheet"表示引入css文件，href表示css文件路径，type表示css文件类型，在h5可以不写,可以引入多个css文件-->
+    <link rel="stylesheet" href="./css/css-demo.css" type="text/css">
+    <style>
+        /* 在内嵌样式中@import导入css文件，加载时会先加载html再加载css，如果网络慢则会先出现无样式页面，用户体验不好，少用 */
+        @import url(./css/css-demo2.css);
+        /* 可以在这里写内嵌样式 */
+        h2{
+            font-size: 20px;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <h4>这是一个段落，引入css文件样式，30px，红色</h4>
+    <h5>这是一个div盒子，引入css文件样式，30px，红色</h5>
+    <h1>导入式css，10px，蓝色</h1>
+    <h2>内嵌样式，20px，黑色</h2>
+    <h3 style="font-size: 40px;color:yellow">内联样式，40px，黄色</h3>
+    <div class="div div2">盒子属性,类选择器</div>
+    <div id="id">id选择器</div>
+    <div class="box1">
+        <ul>
+            <li><p>box1的ul里面的li的第一个段落</p></li>
+            <li><p>box1的ul里面的li的第二个段落</p></li>
+            <li><p>box1的ul里面的li的第三个段落</p></li>
+            <li><p>box1的ul里面的li的第四个段落</p></li>
+        </ul>
+    </div>
+    <div class="box2">
+        <p>交集选择器</p>
+    </div>
+    <div class="box3">
+        <p >盒子3</p>
+    </div>
+    <div class="box4">
+        <p>盒子4</p>
+    </div>
+    <div class="box5">
+        <p>继承性</p>
+        <p class="p1">继承性p1</p>
+    </div>
+    <div class="box6">
+        <p class="p2">importance</p>
+    </div>
+    <img src="./imgs/css选择器权重总结.jpg" alt="">
+</body>
+</html>
