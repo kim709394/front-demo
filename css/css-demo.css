@@ -2,15 +2,7 @@
     标签选择器，选择p，div的标签
 */
 h4,h5 {
-    /* 字体大小,可以是绝对长度也可以是相对长度，建议使用相对长度；
-       绝对长度：in()英寸，cm(厘米)，mm(毫米)，pt(点)
-       相对长度：px(像素,最常用)，em(倍数，继承自祖先元素设置的字号的倍数)，%(百分比，继承自祖先元素设置的字号的百分比)
-       如果不设置字号，不同的浏览器有自己的默认字号，chrome、IE的默认字号为16px,
-       不同浏览器也有自己的最小字号，如果设置的字号小于最小字号，则会以浏览器最小字号加载，0除外，chrome的最小字号是8px，
-       IE的最小字号是1px，
-       建议网页的最小字号是12px，低于12px会有浏览器兼容问题，现在网页中普遍使用14px+
-       尽量使用偶数字号，12px、14px、16px，因为ie6等老版本浏览器奇数字号会有bug
-    */
+   
     font-size: 30px;    
     /* 字体，从前往后加载，只会加载其中一个，找到浏览器支持的字体则加载，
     如果不支持会继续往后加载，如果不设置或者浏览器都不支持，则会加载浏览器默认字体 浏览器支持的字体不是存在浏览器中的，而是客户端
@@ -82,9 +74,9 @@ div.box2 {
    高级选择器：比较选择器的个数，个数多的被选择，比较顺序：(id个数>类的个数>标签的个数)，如果前面比较出大小，则不用比较后面的，否则往后比较
    如果权重一样，那么看书写顺序，后书写的覆盖前书写的,如果是并集，则看成是多个选择器
 */
-/* !importance关键字,如果样式后面加了!importance关键字，那么权重最大
-    在就近原则中，importance关键字会失效。importance关键字不能提升选择器的权重，只能提升某条属性的权重到最大
-    行内式样式的权重最高，但是低于importance
+/* !important关键字,如果样式后面加了!important关键字，那么权重最大
+    在就近原则中，important关键字会失效。important关键字不能提升选择器的权重，只能提升某条属性的权重到最大
+    行内式样式的权重最高，但是低于important
 */
 .box6 .p2 {
     color: #f00;
@@ -95,4 +87,304 @@ div.box2 {
 img {
     width: 1000px;
     height: 500px;
+}
+/* 字体属性;*/
+div.font p {
+    width: 200px;
+    height: 200px;
+    background:#f00;
+
+    /* 字体粗细度：
+    英文表示方式：normal:默认值，定义标准字体；bold：定义粗体字符，b，strong标签的默认值，bolder：定义更粗的字体；
+    lighter：定义更细的字体, 
+    数字表示方式：100-900之间的整百数字，数字越大，文字显示越粗，其中400等价于normal，700等价于bold */
+    font-weight: bold;
+
+    /* 字体是否倾斜：normal：正常显示；italic:设置斜体的文字,主要针对英文，要求英文以字体中的斜体样式显示；
+    oblique:设置倾斜的文字，只是将文字倾斜显示，与字体无关 ，两者区别不大*/
+    font-style: normal;
+
+     /* 字体大小,可以是绝对长度也可以是相对长度，建议使用相对长度；
+       绝对长度：in(英寸)，cm(厘米)，mm(毫米)，pt(点)
+       相对长度：px(像素,最常用)，em(倍数，继承自祖先元素设置的字号的倍数)，%(百分比，继承自祖先元素设置的字号的百分比)
+       如果不设置字号，不同的浏览器有自己的默认字号，chrome、IE的默认字号为16px,
+       不同浏览器也有自己的最小字号，如果设置的字号小于最小字号，则会以浏览器最小字号加载，0除外，chrome的最小字号是8px，
+       IE的最小字号是1px，
+       建议网页的最小字号是12px，低于12px会有浏览器兼容问题，现在网页中普遍使用14px+
+       尽量使用偶数字号，12px、14px、16px，因为ie6等老版本浏览器奇数字号会有bug
+    */
+    font-size: 14px;
+
+    /* 设置行高，可以设置像素值，也可以设置百分比，设置百分比的话则是字号font-size乘以百分比得到
+        字体字号是在行高里面垂直居中显示的，两行文字的中轴线之间的垂直距离为行高，行高-字号=行距；半行距=(行高-字号)/2,
+        文字距离上下边框的距离为半行距
+    */
+    line-height: 26px;
+   
+    /* 字体属性连写写法
+        font: 14px "宋体";  设置字号和字体
+        font: 12px/28px "宋体"; 字号/行高 字体
+        font: bold italic 14px/28px "宋体" 粗细度 是否倾斜 字号/行高 字体
+    */
+    /* 文本水平居中对齐方式设置:left: 左对齐; center：居中；right：右对齐 */
+    text-align: left;
+
+    /* 设置文本线条修饰: none:没有线条修饰，默认值；overline：上划线；line-though：中划线；underline：下划线 */
+    text-decoration: none;
+    
+    /* 设置文本首行缩进值大小:单位：px:缩进多少像素；em：缩进几个中文字符的位置；百分比：缩进文字所在标签的父级标签的width属性值的百分比 
+        正数表示向右缩进，负数表示向左缩进
+    */
+    text-indent: 2em;
+
+
+}
+/* 盒模型属性 */
+.box7 p {
+    /* 盒子宽度和高度：auto：默认值，浏览器可计算出实际的宽度或高度，撑满父级元素的全部，px：像素值；%：定义参考父级元素的百分比
+        body标签不需要设置宽度高度，默认为浏览器的宽度和高度
+        span等内联元素的宽度高度如果不设置，则取决于标签内的内容的宽度自动撑开
+    */
+    width: 200px;
+    height: 300px;
+    /* 内边距,设置单一值表示上下左右四个方向的内边距都相等并且等于该值 
+    单独设置某一方向的内边距数值，顺序一般为顺时针：上右下左
+    padding-top: 50px;      单独设置上边框内边距
+    padding-right: 30px;    单独设置右边框内边距
+    padding-bottom: 20px;   单独设置下边框内边距
+    padding-top: 10px;      单独设置左边框内边距
+    三值连写法：分别指定上10px、左右20px、下30px；
+    padding: 10px 20px 30px;
+    两值连写：分别指定上下10px，左右20px
+    padding: 10px 20px;
+    */
+    padding: 50px;
+    /* 边框 复写法：分别是边框大小、边框形状、颜色
+    border-width: 10px; 每个边框都是10px
+     border-width: 10px 20px 30px 40px; 单独设置四个方向的边框大小，上右下左
+     border-width: 10px 20px 30px;  上10px，左右20px，下30px
+     border-width: 10px 20px;   上下10px，左右20px
+     边框样式
+    border-style: none：无边框，那么所有的颜色和边框大小将失效；solid：实线；dashed：虚线；
+    border-style: dashed solid dotted double; 设置上右下左各边框的样式
+    border-style: dashed solid dotted;  设置上、左右、下各边框样式
+    border-style: dashed solid; 设置上下、左右边框样式
+    边框颜色
+    border-color: #f00 aliceblue aquamarine blue;   设置上右下左边框的颜色
+    border-color: #f00 aliceblue aquamarine; 设置上、左右、下边框的颜色
+    border-color: #f00 aliceblue;   设置上下、左右边框的颜色
+    边框方向和类型一起设置
+    border-top-width: 10px;
+    border-bottom-color: #f00;
+    border-left-style: dashed;
+    */
+    border: 10px solid yellowgreen;
+    border-style: dashed;
+    border-style: dashed solid dotted double;
+    /* 边框颜色 */
+    border-color: blueviolet;
+    /* 外边距 ，和padding的设置一模一样*/
+    margin-top: 50px;   /* 上外边距为50px */
+    margin-right: 50px; /* 有外边距为50px */
+    margin-bottom: 50px;    /* 下外边距为50px */
+    margin-left: 50px;      /* 左外边距为50px */
+    margin: 50px;   /* 四个方向的外边距都为50px */
+    margin: 50px 20px;  /* 上下外边距为50px，左右外边距为20px */
+    margin: 50px 20px 30px; /* 上边距为50px，左右外边距为20px，下外边距为30px */
+    margin: 50px 30px 40px 10px;    /* 上右下左外边距分别为50px，30px，40px，10px */
+}
+/* 清除默认样式,默认清除所以容器标签的外边距和内边距 */
+body,div,h1,h2,h3,h4,h5,h6,p,ul,ol,li {
+    margin: 0px;
+    padding: 0px;
+}
+/* 用通配符方式清除默认样式，但是通配符会加载所有网页所有标签元素，性能较差，小页面可以，大页面不建议 */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 对于列表，清除默认的序列样式 */
+ul,ol {
+    list-style: none;
+}
+/* a标签清除默认的字体颜色和下划线样式 */
+a {
+    color: black;
+    text-decoration: none;
+}
+/* 清除标题标签和一些文字加粗的字体加粗默认样式 */
+h1,h2,h3,h4,h5,h6,b,strong {
+    font-weight: normal;
+}
+/* 设置初始化的公共样式 */
+body {
+    color: black;
+    font-size: 14px;
+    font-family: Arial,"宋体";
+}
+/* 盒子高度宽度,盒子设置了宽度和高度之后，那么位置将确定死了，同级元素不能占据，元素内容也不能将其撑开，
+如果没有设置，那么盒子的尺寸将靠内容自动撑开。如果设置了尺寸，内容超出了盒子的容量，那么内容将会超过盒子的范围。
+通过overflow属性设置盒子内容的自适应：
+visible:默认值，溢出部分显示；hidden：溢出部分不显示；scroll：溢出的部分在水平和垂直方向都出现滚动条，不管有无溢出都会出现滚动条；
+auto：自动的，如果没有溢出就正常显示，如果溢出就自动出现滚动条
+*/
+.box8 {
+    /* 高度和宽度：如果不设置，那么高度和宽度都是默认值：auto，随内容自动撑开 */
+    width: 200px;
+    height: 200px;  
+    border: 1px solid red;
+    overflow: auto;
+
+}
+/* 单行文本垂直居中,设置行高和盒子高度一致即可 */
+.box9 .p1 {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border: 1px solid red;
+}
+/* 多行文本垂直居中： */
+.box9 .p2 {
+    width: 200px;
+    height: auto;
+    border: 1px solid yellow;
+    padding: 100px 0px;
+}
+/* 子盒子元素在父盒子元素中居中,当子盒子宽度小于父盒子宽度时，对子盒子设置外边距水平方向为auto，则会实现水平居中
+    因为盒子元素会独占一行，auto的话它会撑开到最大，而两边都要最大，只能是元素居中然后两边同样的距离了
+*/
+.box10 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid blue;
+}
+.box10 .p1 {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+}
+/* margin塌陷问题：
+    对于垂直方向来说：
+    同级元素：两个同级元素之间的间距不是他们的margin之和，而是更大的margin值。更小的margin值被覆盖了。
+    父子元素：父子元素都设置了顶部margin值，那么子元素与父元素垂直方向的边距不是子元素的顶部margin值，而是父元素的margin顶部边距值。
+    解决办法：
+    同级元素：不要使用两个元素的margin之和来分割两个元素，设置其中一个元素的margin值即可。
+    父子元素：通过父元素的padding或者border来分割与子元素的距离。减少使用margin属性
+    水平方向没有margin塌陷问题。
+*/
+
+/*  
+    html元素总从左到右、从上到下的顺序加载。
+    块元素：div、p、h1、ul等，独占一行，可以设置宽高，不设置会被内容自动撑开
+    行内元素：span、a等，不会独占一行，和其他行内元素能够同一排显示，不能设置宽高，可以设置padding属性，大小随内容自动撑开
+    行内块元素：img、input等，不会独占一行，可以与其他行内元素/行内块元素并排一行，可以设置宽高，不设置则会随着内容大小自动撑开
+    行内元素和行内块元素在换行书写代码都会自动水平方向隔开一个空格，如果不换行则不会出现空格
+*/
+/* 
+    display属性：block：转化为块元素；inline：转化为行内元素；inline-block：转化为行内块元素；none：隐藏元素，并让出位置
+*/
+/*  浮动:
+    float:浮动：可以让元素从左向右或者从右向左排在同一行，并且间隔不会有空格，浮动后的元素具有块级和行内元素的两象性
+    left：从左向右浮动：1234；right：从右向左浮动：4321；
+    特性：依次贴边，没有margin塌陷现象，
+    字围现象：如果一个元素浮动而另外的元素不浮动，那么浮动的元素会覆盖在不浮动的元素上面，但是不会覆盖元素文本内容，因此产生字围
+    现象。一般情况下不允许父元素内的子元素一些浮动一些不浮动，但在特殊情况下可以使用。在ie7、ie6无法产生字围现象。
+*/
+.box12 {
+    width: 840px;
+    height: 250px;
+}
+.box12 p {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    margin-right: 10px;
+    float: left;
+}
+/* 浮动极端情况，当子元素宽度大于浮动后在父元素的剩余宽度时，会自动往下找到宽度合适的元素进行贴边，但贴边时以前面元素的最高高度作为
+起始高度 */
+.box13 {
+    width: 800px;
+    height: 400px;
+    border: 1px solid red;
+}
+.box13 p {
+    float: left;
+}
+.box13 .p1 {
+    width: 200px;
+    height: 350px;
+    background-color: blue;
+}
+.box13 .p2 {
+    width: 300px;
+    height: 100px;
+    background-color: black;
+}
+.box13 .p3 {
+    width: 100px;
+    height: 200px;
+    background-color: blueviolet;
+}
+.box13 .p4 {
+    width: 250px;
+    height: 100px;
+    background-color: aqua;
+}
+/* 消除浮动属性:clear: left:清除前面元素左浮动带来的标准文档流失效影响；right：清除前面元素右浮动带来的标准文档流失效影响
+    both：清除前面元素所有浮动带来的标准文档流失效影响。
+    对于父子元素，子元素的浮动不会自动撑开父元素的高度。
+    清除浮动的方法：
+    1、给父容器加高度height属性，但是这样父元素高度无法自适应。
+    2、外墙法：就是两个父容器之间添加一个空的div标签加上clear属性，但是父容器依然无法高度自适应，如果两个父元素之间又margin设置将不会生效
+    3、内墙法，在两个父容器底部添加一个空的div标签加上clear属性，可以解决所有问题，但是利用增加html标签的方法解决css问题，本末倒置。
+    4、.classfix:after ：cass伪类，给容器标签添加.classfix类属性，然后classfix类选择器写成.classfix:after，表示选择容器标签的最后一个子元素
+    的下面位置，然后设置clear:both清除浮动带来的影响，但是伪类需要占据一定的空间且不能可见，因此设置content内容和height设置为0，display设置
+    为block可见， visibility设置hidden隐藏内容但是空间不让出来，达到效果。
+    5、给父容器设置溢出隐藏并且不设置height：overflow:hidden；原理：
+    当容器设置高度和溢出隐藏时，容器内部溢出容器高度的部分会被隐藏。
+    当容器不设置高度时，当不设置溢出隐藏时，浮动的子元素不会撑开父容器的高度，非浮动的子元素会撑开容器的高度，当设置了溢出隐藏之后，
+    不管容器内部的子元素是否是浮动的都会撑开父容器高度加载。
+    解决浮动带来的标准文档流丢失问题总结：当父容器需要设置高度时，采用设置高度的方法。当父容器需要自适应高度时，采用设置溢出隐藏的方法。
+
+*/
+.box14 {
+    width: 1000px;
+    border: 10px solid blueviolet;
+    overflow: hidden;
+}
+.box14 p,.box15 p {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    background-color: blanchedalmond;
+}
+.box15 {
+    width: 1000px;
+    border: 10px solid yellow;
+    overflow: hidden;
+    /* clear: both; */
+}
+/* .classfix:after {
+    content: "1";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0px;
+} */
+
+/* a标签的伪类 */
+.box16 a:link {
+    color: darkgray;
+}
+.box16 a:visited {
+    color: #f00;
+}
+.box16 a:hover {
+    color: aqua;
+}
+.box16 a:active {
+    color: yellow;
 }
