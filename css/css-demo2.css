@@ -2,3 +2,232 @@ h1{
     font-size: 10px;
     color: blue;
 }
+/* 相对定位，参考点是自身 */
+.box1 {
+    margin-left: 200px;
+}
+.box1 p {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+.box1 .p1 {
+    position: relative; /* relative为相对定位 */
+    /* left:像素值；正数取反，为向右移动200px；负数则向左移动200px
+        top：像素值；同样取反，正数为向下移动150px；负数为向上移动150px
+        right和bottom同样道理，但是在水平方向或垂直方向只能设置一个属性，如果同时设置则只会left和top生效，一般只设置left和top即可
+        相对定位移位但并未脱离标准文档流，虽然移动了位置，但是不会让出文档位置，移位留坑，形影分离
+    */
+    left: 200px;    
+    top: 150px;
+}
+/* 相对定位应用:导航栏 */
+ul.ul1 {
+    width: 1000px;
+    height: 50px;
+    list-style: none;
+    margin: 20px auto;
+}
+.ul1 li{
+    float: left;
+    list-style: none;
+}
+.ul1 li a {
+    background-color: skyblue;
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+    width: 200px;
+    display: block;
+}
+.ul1 li a:hover {
+    /* background-color: yellow; */
+    border-top: 3px solid green;
+    position: relative;
+    top: -3px;
+}
+/* 相对定位应用：文字注释 */
+.box2 p {
+    width: 300px;
+    font: 30px/50px "宋体";
+    border: 1px solid black; 
+}
+.box2 p span {
+    position: relative;
+    font-size: 15px;
+    color: blue;
+    top: -10px;
+}
+/* 绝对定位 
+     position: absolute; 参考点是距离最近的祖先元素，如果祖先元素没有定位，那么参考点分情况；一个元素被绝对定位移位的话，
+     那么将脱离标准文档流，会让出位置，并且不会margin塌陷；
+     单独设置left或right：在上下方向的位置和原来一样并且和之前的元素不会margin塌陷的基础上，left是body浏览器最左边作为参考点位移，
+     正数向右，负数向左；right是body浏览器最右边作为参考点位移，正数向左，负数向右
+     单独设置top或bottom：参考点是body浏览器首屏(若有滚动条，则完全未滚动的初始位置)左上角或左下角，这时候会覆盖在其他元素上面，
+     而不会和其他元素产生位置上的占位，top是浏览器左上角开始偏移，正数向下，负数向上；bottom是浏览器左下角，正数向上，负数向下；
+     复合设置left top或right bottom：参考点是body浏览器首屏左上角或右下角；如果同时设置了水平方向和垂直方向，那么将以left和top为准。
+     因为浏览器分辨率和缩放不一致，所以以body为参考点不稳定，尽量少用
+*/
+/* 绝对定位以body作为参考点 */
+.box3 {
+    width: 500px;
+    border: 1px solid black;
+}
+.box3 p {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+.box3 .p3 {
+    background-color: red;
+    position: absolute;
+   
+    /* left: 100px;
+    top: 100px; */
+    bottom: 100px;
+}
+/* 绝对定位中子元素以距离最近的有定位(任意定位，包含相对、绝对、固定)的祖先元素作为参考点进行偏移
+    一般情况下有三种组合：子绝父相，子绝父绝，子绝父固，大多数使用子绝父相的情况
+    对于子绝父相的情况，参考点是父元素的border以内的区域，自动忽略padding区域。
+*/
+.box4 {
+    width: 400px;
+    height: 300px;
+    border: 10px solid tomato;
+    position: relative;
+}
+.box4 p {
+    width: 200px;
+    height: 150px;
+    border: 10px solid violet;
+    position: absolute;
+    left: 150px;
+    top: 100px;
+}
+/* 固定定位：position:fixed；参考点是浏览器窗口的四个顶点，无论浏览器是否有滚动条，是否随着滚动条滚动，绝对定位的位置都是参考即时的窗口
+    绝对定位的元素将脱离标准文档流，让出位置，可以设置宽高，位于最上层悬浮。
+*/
+a.top {
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+    width: 40px;
+    height: 30px;
+    font: 10px/30px '宋体';
+    text-decoration: none;
+    color: black;
+    background-color: #eee;
+}
+/* 定位默认压盖顺序，如果多个定位盒子都在一个位置，那么压盖顺序按照html书写顺序，后写的压盖前写的，和压盖类型无关。
+    无论哪一种定位都会压盖标准文档流和浮动的盒子。
+    可以通过z-index属性设置压盖顺序，有z-index的压盖没有设置z-index的，属性值大的压盖属性值小的，如果属性值一样则按照html书写顺序。
+    z-inde只针对有定位的元素才生效，对于没有定位的元素不生效，按标准文档流处理
+    如果存在两组父子级元素压盖，如果父子盒子都进行了定位，与其他的父子盒子有覆盖的部分，那么：
+    父级盒子：如果不设置z-index，后写的压盖先写的，如果设置了z-index，值大的压盖值小的；
+    子级盒子：如果父级没有设置z-index，子级z-index大的会压盖小的，如果父级设置了z-index，无论子级z-index值是多少，都是父级的值
+    大的压盖值小的，俗称“从父效应”
+*/
+.box5 {
+    width: 500px;
+    height: 500px;
+    border: 1px solid teal;
+    position: relative;
+}
+.box5 .b0 {
+    left: 0px;
+    top: 0px;
+    width: 450px;
+    height: 450px;
+    background-color: slategray;
+}
+.box5 .b1 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 400px;
+    height: 400px;
+    background-color: black;
+}
+.box5 .b2 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    height: 300px;
+    background-color: blueviolet;
+    z-index: 1;
+}
+.box5 .b3 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 200px;
+    background-color: burlywood;
+    z-index: 2;
+}
+.box5 .b3 p {
+    width: 10px;
+    height:10px;
+    background-color:red
+}
+/* 静态轮播图 */
+.box6 {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    margin: 20px auto;
+}
+.box6 ul li {
+    position:absolute;
+    left: 0;
+    top: 0;
+    list-style: none;
+}
+.box6 ul li img {
+    width: 600px;
+    height: 400px;
+}
+.box6 a.btn {
+    display: block;
+    width: 20px;
+    height: 30px;
+    font: 25px/30px '宋体';
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+}
+.box6 a.btn.leftbtn {
+    left: 0;
+}
+.box6 a.btn.rightbtn {
+    right: 0;
+}
+.box6 ol {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    
+}
+.box6 ol li {
+   
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    font: 15px/20px '宋体';
+    color: black;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin-right: 5px;
+    
+}
+.box6 .current {
+    background-color: rgba(255, 255, 255, 0.889) !important ;
+    cursor: pointer;    /* 鼠标聚焦时改变鼠标箭头为手指 */
+}

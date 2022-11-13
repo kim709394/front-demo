@@ -375,16 +375,78 @@ auto：自动的，如果没有溢出就正常显示，如果溢出就自动出�
     height: 0px;
 } */
 
-/* a标签的伪类 */
-.box16 a:link {
-    color: darkgray;
+/*  a标签的伪类，和标签绑定，不需要写具体的类选择器，规则预加载好，和普通类选择器权重相等。
+    必须按照以下顺序才能生效，伪类的权重是相等的，必须按照书写顺序，否则后加载的样式会覆盖掉前面写的。
+*/
+.box16 a:link { /* 访问前样式 */
+    color: darkgray;    
 }
-.box16 a:visited {
+.box16 a:visited {  /* 访问后样式 */
     color: #f00;
 }
-.box16 a:hover {
+.box16 a:hover {    /* 鼠标聚焦样式 */
     color: aqua;
 }
-.box16 a:active {
+.box16 a:active {   /* 鼠标点击样式 */
     color: yellow;
+}
+/* 背景图片
+    backgroud-repeat:repeat:默认值，重复加载使图片充满整个盒子区域
+    no-repeat:不重复，不论背景图是否大于盒子范围，都只加载一次图片
+    repeat-x：水平重复，是图片水平重复加载铺满第一行，垂直方向不重复
+    repeat-y：垂直重复，是背景图片垂直重复加载铺满第一列水平方向不重复
+    background-position:背景图片坐标：三种写法：单词法、像素值法、百分比值法
+    background-position：水平方向 垂直方向
+    水平方向：单词法：left center right：左对齐、居中、右对齐；像素值法：20px：x轴向右移动20px；-20px：x轴向左移动20px；
+    百分比法：x轴向右移动父元素宽度的百分比
+    垂直方向：top center bottom：上对齐、垂直居中、下对齐；像素值法：20px：y轴向下移动20px；-20px：y轴向上移动20px；
+    百分比法：y轴向下移动父元素高度的百分比
+    background-attachment：背景图附着：一旦设置了backgroud-attachment的话，position就不会以盒子的边框左上角为起始顶点，而是以浏览器的左上
+    顶点为定位的参考点：scroll：随着滚动条的滚动而一起滚动；fixed:定死在浏览器，不会随着滚动条的滚动而滚动
+*/
+.box17 {
+    width: 800px;
+    height: 800px;
+    border: 10px dashed red;
+    background-color: cadetblue;
+    background-image: url("../imgs/syyy.jpg");
+    background-repeat: no-repeat;
+    background-position: 20px 20px;
+}
+body {
+    background-attachment: fixed;
+    background-image: url("../imgs/syyy.jpg");
+    background-repeat: no-repeat;
+    /* 属性连写：
+        background: 一次性设置背景图、是否重复、定位坐标、是否随着滚动条滚动、背景颜色；除了定位属性位置不能乱以外，其他都可以随意调换顺序
+    */
+    background: url("../imgs/syyy.jpg") no-repeat center top fixed skyblue;
+}
+.box18 {
+    /* 半透明颜色，rgba(255,0,255,0.5)：前面三个指定颜色，最后一个指定透明度；取值为0到1,0：完全透明，看不到；
+        1：完全不透明，相当于不设置；0-1：透明度由浅至深，不仅可以应用在背景颜色，还可以应用到字体颜色和边框颜色
+        半透明只针对背景颜色，不会对内容有影响
+    */
+    width: 600px;
+    height: 400px;
+    background: url("../imgs/syyy.jpg") no-repeat;
+    /* 设置背景图片尺寸background-size：
+        像素值：200px 200px： 宽200px 高度200px
+        百分比：50% 50%：宽度为盒子宽度的50%，高度为盒子高度的50%
+        cover:  自动调整缩放比例，把背景图片扩展到足够大，以使背景图片完全覆盖背景区域，如有溢出则会隐藏;
+        contain：自动调整缩放比例，把图像扩展至最大尺寸，保证图片始终完整显示在背景区域,如果还是不能填满则会流出未覆盖的背景区域
+    */
+    background-size: cover;
+    background-color: rgba(255, 0, 255, 0.5);/* 背景色要写在背景图片样式后面，否则会被背景图覆盖而不能生效 */
+   
+    
+}
+.box19 {
+    width: 600px;
+    height: 400px;
+    background-repeat: no-repeat;
+    /* 多背景图片：background-image
+        以逗号分隔写多个url插入多个背景图片，先写的会覆盖后面写的。
+    */
+    background-image: url(../imgs/syyy.jpg),url(../imgs/css选择器权重总结.jpg);
 }

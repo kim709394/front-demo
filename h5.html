@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<!-- device-width -->, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            width: 1000px;
+            height: 50px;
+            background-color: yellowgreen;
+            margin:10px auto;
+        }
+        nav {
+            width: 1000px;
+            height: 50px;
+            background-color: yellowgreen;
+            margin:10px auto;
+        }
+        main {
+            width: 1000px;
+            height: 510px;
+            background-color: yellowgreen;
+            margin:10px auto;
+        }
+        main aside{
+            width: 250px;
+            height: 500px;
+            margin-right: 10px;
+            background-color: pink;
+            float: left;
+        }
+        main article{
+            width: 740px;
+            height: 500px;
+            background-color: azure;
+            float: right;
+        }
+        footer {
+            width: 1000px;
+            height: 50px;
+            background-color: yellowgreen;
+            margin:10px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- h5新增了很多语义标签，这些标签是为了seo搜索引擎更容易检索的
+        <header>：头部标签
+        <nav>：导航标签
+        <main>: 主体标签
+        <article>：独立的内容标签
+        <section>：区段标签
+        <aside>：侧边栏标签
+        <footer>：尾部标签
+        更多内容查看：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element
+        在IE9中，这些元素要转化为块元素，IE9以下不支持
+    -->
+    <header>头部</header>
+    <nav>导航栏</nav>
+    <main>
+        <aside>侧边栏</aside>
+        <article>
+            主体内容
+            <!-- h5新增音频标签,autoplay：音频就绪后马上播放；controls：向用户显示控件，比如播放按钮；loop：每当音频结束时重新开始播放
+                preload：音频在页面加载时进行加载，并预备播放，如果使用"autoplay",则忽略该属性
+                各属性值相等的情况下也可以不写属性值
+                音频格式在不同的浏览器存在兼容性问题
+
+            -->
+            <audio src="./audios/谷娅溦-安守本份.mp3" controls="controls" autoplay="autoplay" loop="loop" preload="preload">
+                <!-- 兼容写法，如果第一个加载成功则不会往下加载，否则继续往下加载，如果所有音频都不支持，可以给出提示 -->
+                <source src="./audios/谷娅溦-安守本份.mp3" type="auto/mpeg">
+                <source src="./audios/谷娅溦-安守本份.mp3" type="auto/ogg">
+                您的浏览器暂不支持audio标签
+            </audio>
+        </article>
+    </main>
+    <footer>底部</footer>
+</body>
+</html>
