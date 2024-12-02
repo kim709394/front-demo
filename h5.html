@@ -66,11 +66,12 @@
             主体内容
             <!-- h5新增音频标签,autoplay：音频就绪后马上播放；controls：向用户显示控件，比如播放按钮；loop：每当音频结束时重新开始播放
                 preload：音频在页面加载时进行加载，并预备播放，如果使用"autoplay",则忽略该属性
+                muted:音频未静音：大多数浏览器仅允许静音的视频自动播放。如果您的视频包含音频，确保添加 muted 属性。
                 各属性值相等的情况下也可以不写属性值
                 音频格式在不同的浏览器存在兼容性问题
 
             -->
-            <audio src="./audios/谷娅溦-安守本份.mp3" controls="controls" autoplay="autoplay" loop="loop" preload="preload">
+            <audio src="./audios/谷娅溦-安守本份.mp3" controls="controls" autoplay="autoplay" loop="loop" preload="preload" muted="muted">
                 <!-- 兼容写法，如果第一个加载成功则不会往下加载，否则继续往下加载，如果所有音频都不支持，可以给出提示 -->
                 <source src="./audios/谷娅溦-安守本份.mp3" type="auto/mpeg">
                 <source src="./audios/谷娅溦-安守本份.mp3" type="auto/ogg">
